@@ -3,14 +3,20 @@ from dados import carregar_acessos
 from sklearn.naive_bayes import MultinomialNB
 
 x,y = carregar_acessos()
-model = MultinomialNB()
-model.fit(x, y)
-# print(model.predict([[1,0,1], [0,1,0], [1,0,0], [1,1,1]]))
-result = model.predict(x)
-differ = result - y
-accuracy = [d for d in differ if d == 0]
-total = len(accuracy)
-total_elem = len(x)
-taxa = 100.0 * total / total_elem
+treino_dados = x[:90]
+treino_marcacoes = y[:90]
 
-print(taxa)
+teste_dados = x[-9:]
+teste_marcacoes = y[-9:]
+
+modelo = MultinomialNB()
+modelo.fit(treino_dados, treino_marcacoes)
+# print(modelo.predict([[1,0,1], [0,1,0], [1,0,0], [1,1,1]]))
+resultado = modelo.predict(teste_dados)
+diferenca = resultado - teste_marcacoes
+acertos = [d for d in diferenca if d == 0]
+total_de_acertos = len(acertos)
+total_de_elementos = len(x)
+taxa_acertos = 100.0 * total_de_acertos / total_de_elementos
+
+print(taxa_acertos)
