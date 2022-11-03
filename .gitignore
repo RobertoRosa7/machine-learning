@@ -1,2 +1,5 @@
 .venv
 data
+data/*
+data/files
+data/images
