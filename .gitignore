@@ -3,3 +3,4 @@ data
 data/*
 data/files
 data/images
+.env
