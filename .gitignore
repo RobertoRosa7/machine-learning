@@ -1,8 +1,8 @@
 .venv
+.env
+.idea
 data
 data/*
 data/files
 data/images
 data/balancos
-.env
-.idea
